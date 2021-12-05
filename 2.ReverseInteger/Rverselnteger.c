@@ -14,15 +14,61 @@ int reverse(int x)
         x = 0 - x;
         int i, k = 1;
         int answer = 0;
-        for(i = 1; ; i = i * 10)
+        for(i = 1; i != 1000000000 ; i = i * 10)
         {
             if (x / i == 0)
                 break;
         }
-        for(k = 1, i = i / 10; i != 0; i = i / 10, k = k * 10)
+        if(i == 1000000000)
         {
-            answer = (x / i) * k + answer;
-            x = x - (x / i) * i;
+            if (x % 10 > 2) return 0;
+            else if(x == 2)
+            {
+                if ((x % 100) / 10 > 1) return 0;
+                else if ((x % 100) / 10 == 1)
+                {
+                    if((x % 1000) / 100 > 4) return 0;
+                    else if ((x % 1000) / 100 == 4)
+                    {
+                        if ((x % 10000) / 1000 > 7) return 0;
+                        else if ((x % 10000) / 1000 == 7)
+                        {
+                            if ((x % 100000) / 10000 > 4) return 0;
+                            else if ((x % 100000) / 10000 == 4)
+                            {
+                                if ((x % 1000000) / 100000 > 8) return 0;
+                                else if ((x % 1000000) / 100000 == 8)
+                                {
+                                    if ((x % 10000000) / 1000000 > 3) return 0;
+                                    else if ((x % 10000000) / 1000000 == 3)
+                                    {
+                                        if ((x % 100000000) / 10000000 > 6) return 0;
+                                        else if ((x % 100000000) / 10000000 > 6)
+                                        {
+                                            if ((x % 1000000000) / 100000000 > 4) return 0;
+                                            else if ((x % 1000000000) / 100000000 == 4)
+                                                if (x / 1000000000 > 8) return 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (k = 1; i != 0, k == 1000000000; i = i / 10, k = k * 10)
+            {
+                answer = (x / i) * k + answer;
+                x = x - (x / i) * i;
+            }
+        }
+        else
+        {
+            for(k = 1, i = i / 10; i != 0; i = i / 10, k = k * 10)
+            {
+                answer = (x / i) * k + answer;
+                x = x - (x / i) * i;
+            }
         }
         return 0 - answer;
     }
@@ -30,15 +76,61 @@ int reverse(int x)
     {
         int i, k = 1;
         int answer = 0;
-        for(i = 1; ; i = i * 10)
-        {
+        for(i = 1;i != 1000000000 ; i = i * 10)
+            {
             if (x / i == 0)
                 break;
-        }
-        for(k = 1, i = i / 10; i != 0; i = i / 10, k = k * 10)
+            }
+        if(i == 1000000000)
         {
+            if (x % 10 > 2) return 0;
+            else if(x == 2)
+            {
+                if ((x % 100) / 10 > 1) return 0;
+                else if ((x % 100) / 10 == 1)
+                {
+                    if((x % 1000) / 100 > 4) return 0;
+                    else if ((x % 1000) / 100 == 4)
+                    {
+                        if ((x % 10000) / 1000 > 7) return 0;
+                        else if ((x % 10000) / 1000 == 7)
+                        {
+                            if ((x % 100000) / 10000 > 4) return 0;
+                            else if ((x % 100000) / 10000 == 4)
+                            {
+                                if ((x % 1000000) / 100000 > 8) return 0;
+                                else if ((x % 1000000) / 100000 == 8)
+                                {
+                                    if ((x % 10000000) / 1000000 > 3) return 0;
+                                    else if ((x % 10000000) / 1000000 == 3)
+                                    {
+                                        if ((x % 100000000) / 10000000 > 6) return 0;
+                                        else if ((x % 100000000) / 10000000 > 6)
+                                        {
+                                            if ((x % 1000000000) / 100000000 > 4) return 0;
+                                            else if ((x % 1000000000) / 100000000 == 4)
+                                                if (x / 1000000000 > 7) return 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for(k = 1; i != 0; i = i / 10, k = k * 10)
+            {
             answer = (x / i) * k + answer;
             x = x - (x / i) * i;
+            }
+        }
+        else
+        {
+            for(k = 1, i = i / 10; i != 0; i = i / 10, k = k * 10)
+            {
+                answer = (x / i) * k + answer;
+                x = x - (x / i) * i;
+            }
         }
         return answer;
     }
