@@ -17,24 +17,26 @@ int lengthOfLongestSubstring(char * s)
         int m, n, i, most_length = 0, length = 0, s_length = 0;
         for (i = 0; s[i] != 0; i++);
         s_length = i;
-        int Y;
-        for (m = 0; s_length - m > most_length; m = n)
+        for (m = 0; s_length - m > most_length; m++)
         {
             for (n = m + 1; s[n] != '\0'; n++)
             {
-                for(i = m, Y = 1; i != n; i++)
-                {
-                    Y = (s[n] != s[i]);
-                    if (Y == 1)
-                        continue;
-                    else 
+                for(i = m; s[i] != s[n] && i != n; i++);
+                if (i == n)
                     {
-                        length = n - m;
-                        break;
+                        if (s[n + 1] == '\0')
+                        {
+                            length = n - m + 1;
+                            break;
+                        }
+                        else
+                            continue;
                     }
-                }
-                if (Y != 1)
+                else 
+                {
+                    length = n-m;
                     break;
+                }
             }
             if(length > most_length)
                 most_length = length;
