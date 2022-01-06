@@ -1,0 +1,48 @@
+/*
+14. 最长公共前缀
+编写一个函数来查找字符串数组中的最长公共前缀。
+
+如果不存在公共前缀，返回空字符串 ""。
+
+ 
+
+示例 1：
+
+输入：strs = ["flower","flow","flight"]
+输出："fl"
+示例 2：
+
+输入：strs = ["dog","racecar","car"]
+输出：""
+解释：输入不存在公共前缀。
+*/
+char * longestCommonPrefix(char ** strs, int strsSize){
+    if (strsSize == 0){
+        return "";
+    }
+    else if (strsSize == 1){
+        return strs[0];
+    }
+    else{
+        int i, j;
+        for (i = 0; strs[0][i] != '\0'; ){
+            for (j = 1; j < strsSize && strs[j][i] == strs[0][i]; j++);
+            if (j == strsSize){
+                i++;
+                continue;
+            }
+            else
+                break;
+        }
+        if (i == 0){
+            return "";
+        }
+        else{
+            char *char_return = (char*)malloc(sizeof(char) * (i + 1));
+            for (j = 0; j < i; j++)
+                char_return[j] = strs[0][j];
+            char_return[i] = '\0';
+            return char_return;
+        }
+    }
+}
