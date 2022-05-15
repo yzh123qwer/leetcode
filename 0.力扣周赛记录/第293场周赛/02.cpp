@@ -23,6 +23,7 @@ Alice 管理着一家公司，并租用大楼的部分楼层作为办公空间�
 输出：0
 解释：每层楼都被规划为特殊楼层，所以返回 0 。
 */
+
 class Solution2 {
 public:
     int maxConsecutive(int bottom, int top, vector<int>& special) {
